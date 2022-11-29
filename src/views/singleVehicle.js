@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function singleVehicle() {
+export default function SingleVehicle() {
   return (
     <div>singleVehicle</div>
   )

@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function singlePlanet() {
+export default function SinglePlanet() {
   return (
     <div>singlePlanet</div>
   )
