@@ -1,9 +1,11 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import { Link } from "react-router-dom";
 import { getVehicles } from '../api/fetch'
 import "../styles/cards.css"
+import { DataContext } from '../store/appContext';
 
 export default function Vehicles() {
+  const { contextData, setContextData } = useContext(DataContext)
   const [vehicles, setVehicles] = useState([])
   useEffect(() => {
     getVehicles().then(setVehicles);

@@ -1,9 +1,11 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import { Link } from "react-router-dom";
 import { getPlanets } from '../api/fetch'
 import "../styles/cards.css"
+import { DataContext } from '../store/appContext';
 
 export default function Planets() {
+    const { contextData, setContextData } = useContext(DataContext)
     const [planets, setPlanets] = useState([])
     useEffect(() => {
         getPlanets().then(setPlanets);
