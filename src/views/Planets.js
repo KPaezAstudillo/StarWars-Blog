@@ -10,7 +10,7 @@ export default function Planets() {
 console.log(planets?.results?.url);
     }, [planets]);
     return (
-        <><h1>Planets</h1>
+        <><h1 className='d-flex justify-content-center my-3'>Planets</h1>
             <div className='row d-flex'>
                 {
                     planets?.results?.map((planet) =>
@@ -20,8 +20,9 @@ console.log(planets?.results?.url);
                             <div className="card-body" >
                                 <h5 className="card-title">{planet.name}</h5>
                                 <p className="card-text">
-                                  ...
+                                  Diameter: {planet.diameter}
                                 </p>
+                                <p>Population: {planet.population}</p>
                                 <Link to={`./${Number(planet.url.split('/').slice(-2)[0])}/details`} className="card-link me-2" >Detail</Link>
 
                                 <Link to="/" className="btn btn-primary w-50">Add </Link>

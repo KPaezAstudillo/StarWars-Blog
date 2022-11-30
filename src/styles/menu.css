@@ -1,0 +1,20 @@
+.menu-img:hover{
+	-webkit-transform: scale(1.3);
+	transform: scale(1.3);
+	-webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
+}
+h2{
+    font-size:4vh;
+    text-decoration: none !important;
+    color: black;
+
+
+}
+.menu-img:hover + h2 {
+	margin-top: 50px;
+    -webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
+    font-weight: 900;
+}
+

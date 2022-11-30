@@ -8,6 +8,7 @@ import Planets from './views/Planets';
 import SingleCharacter from './views/SingleCharacter';
 import SingleVehicle from './views/SingleVehicle';
 import SinglePlanet from './views/SinglePlanet';
+import Menu from './views/Menu';
 
 
 
@@ -16,6 +17,7 @@ function App() {
     <BrowserRouter>
       <Navbar />
       <Routes>
+      <Route path="/" element={<Menu />} />
         <Route path="/characters" element={<Characters />} />
         <Route path="/vehicles" element={<Vehicles />} />
         <Route path="/planets" element={<Planets />} />

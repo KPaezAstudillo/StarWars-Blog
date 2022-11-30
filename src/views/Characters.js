@@ -10,7 +10,7 @@ export default function Characters() {
 
     }, []);
     return (
-        <><h1>Characters</h1>
+        <><h1 className='d-flex justify-content-center my-3' >Characters</h1>
             <div className='row d-flex'>
 
                 {
@@ -21,9 +21,9 @@ export default function Characters() {
                             <div className="card-body" >
                                 <h5 className="card-title">{character.name}</h5>
                                 <p className="card-text">
-                                    Gender: {character.gender}
-                                    Mass: {character.mass}
+                                    Gender: {character.gender}                                  
                                 </p>
+                                <p>Mass: {character.mass}</p>
                                 <Link to={`./${Number(character.url.split('/').slice(-2)[0])}/details`} className="card-link me-2" >Detail</Link>
 
                                 <a href="#" className="btn btn-primary w-50">Add </a>
