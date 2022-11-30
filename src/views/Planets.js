@@ -9,6 +9,12 @@ export default function Planets() {
         getPlanets().then(setPlanets);
 console.log(planets?.results?.url);
     }, [planets]);
+
+    const handleFavorite = (e, name, url) => {
+        e.preventDefault();
+        setContextData([...contextData, {name:name, id: Number(url.split('/').slice(-2)[0]), type: 'planets'} ])
+
+    }
     return (
         <><h1 className='d-flex justify-content-center my-3'>Planets</h1>
             <div className='row d-flex'>
@@ -25,7 +31,7 @@ console.log(planets?.results?.url);
                                 <p>Population: {planet.population}</p>
                                 <Link to={`./${Number(planet.url.split('/').slice(-2)[0])}/details`} className="card-link me-2" >Detail</Link>
 
-                                <Link to="/" className="btn btn-primary w-50">Add </Link>
+                                <button className="btn btn-primary w-50" onClick={(e) => handleFavorite(e, planet.name, planet.url)}>Add </button>
                             </div>
                         </div>
                     ))

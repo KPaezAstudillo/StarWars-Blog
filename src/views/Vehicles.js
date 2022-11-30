@@ -9,6 +9,12 @@ export default function Vehicles() {
     getVehicles().then(setVehicles);
 
   }, []);
+
+  const handleFavorite = (e, name, url) => {
+    e.preventDefault();
+    setContextData([...contextData, {name:name, id: Number(url.split('/').slice(-2)[0]), type: 'vehicles'} ])
+
+}
   return (
     <><h1 className='d-flex justify-content-center my-3'>Vehicles</h1>
       <div className='row d-flex'>
@@ -26,7 +32,7 @@ export default function Vehicles() {
 
                 <Link to={`./${Number(vehicle.url.split('/').slice(-2)[0])}/details`} className="card-link me-2" >Detail</Link>
 
-                <button className="btn btn-primary w-50">Add </button>
+                <button className="btn btn-primary w-50" onClick={(e) => handleFavorite(e, vehicle.name, vehicle.url)}>Add </button>
               </div>
             </div>
           ))

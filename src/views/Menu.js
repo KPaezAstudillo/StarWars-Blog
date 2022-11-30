@@ -1,11 +1,13 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import { Link } from "react-router-dom";
 import "../styles/menu.css"
+import { DataContext } from '../store/appContext';
 
 export default function Menu() {
+    const {contextData} = useContext(DataContext)
     return (
         <>
-        <h1 className='d-flex justify-content-center mx-auto mt-5'>Welcome to the Star Wars Blog! May the force be with you</h1>
+        <h1 className='d-flex justify-content-center mx-auto mt-5'>Welcome to the Star Wars Blog! May the force be with you </h1>
         <h1 className='d-flex justify-content-center'>Choose one:</h1>
             <div className='row my-5'>
                 <div className='col-12 col-md-3 mx-auto mb-3'>

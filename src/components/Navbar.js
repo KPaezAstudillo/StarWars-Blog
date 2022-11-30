@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from "react-router-dom";
+import FavoritesList from './FavoritesList';
 
 export default function Navbar() {
   return (
@@ -9,7 +10,7 @@ export default function Navbar() {
     </Link>
     <div className="ml-auto">
         <Link to="/">
-            <button className="btn btn-primary">Favorites</button>
+            <FavoritesList />
         </Link>
     </div>
 </nav>
