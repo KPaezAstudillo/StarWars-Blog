@@ -1,8 +1,8 @@
 import React, { useEffect, useState, useContext } from 'react'
 import { Link } from "react-router-dom";
 import { getPeople } from '../api/fetch'
-import "../styles/cards.css"
 import { DataContext } from '../store/appContext';
+import { FaHeart } from 'react-icons/fa';
 
 export default function Characters() {
     const { contextData, setContextData } = useContext(DataContext)
@@ -14,7 +14,7 @@ export default function Characters() {
 
     const handleFavorite = (e, name, url) => {
         e.preventDefault();
-        setContextData([...contextData, {name:name, id: Number(url.split('/').slice(-2)[0]), type: 'characters'} ])
+        setContextData([...contextData, { name: name, id: Number(url.split('/').slice(-2)[0]), type: 'characters' }])
 
     }
     return (
@@ -32,9 +32,14 @@ export default function Characters() {
                                     Gender: {character.gender}
                                 </p>
                                 <p>Mass: {character.mass}</p>
-                                <Link to={`./${Number(character.url.split('/').slice(-2)[0])}/details`} className="card-link me-2" >Detail</Link>
-
-                                <button className="btn btn-primary w-50" onClick={(e) => handleFavorite(e, character.name, character.url)}>Add </button>
+                                <div className='row d-flex'>
+                                    <div className='col-1 me-auto'>
+                                        <button className="btn bg-secondary"><Link to={`./${Number(character.url.split('/').slice(-2)[0])}/details`} className="text-white text-decoration-none" >Details</Link></button>
+                                    </div>
+                                    <div className='col-1 me-2'>
+                                        <button className="btn bg-danger  text-white" onClick={(e) => handleFavorite(e, character.name, character.url)}> <FaHeart /> </button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     ))
