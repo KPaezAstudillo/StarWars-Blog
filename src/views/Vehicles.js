@@ -12,6 +12,9 @@ export default function Vehicles() {
 
   }, []);
 
+      //Adds name, id and type of favorite (in this case vehicle) to the favorite list
+    //I only display name
+    //but id and type is necessary to redirect to details page. ex: vehicles/1/details
   const handleFavorite = (e, name, url) => {
     e.preventDefault();
     setContextData([...contextData, { name: name, id: Number(url.split('/').slice(-2)[0]), type: 'vehicles' }])
@@ -25,6 +28,7 @@ export default function Vehicles() {
           vehicles?.results?.map((vehicle) =>
           (
             <div className="card col-lg-3 col-12 " key={vehicle.name}>
+              {/* I got the id from the url attribute, since there is no explicit id */}
               <img src={`https://starwars-visualguide.com/assets/img/vehicles/${Number(vehicle.url.split('/').slice(-2)[0])}.jpg`} className="card-img-top" alt="..." />
               <div className="card-body" >
                 <h5 className="card-title">{vehicle.name}</h5>
@@ -32,11 +36,11 @@ export default function Vehicles() {
                   Model: {vehicle.model} </p>
                 <p > Cargo Capacity: {vehicle.cargo_capacity}</p>
                 <div className='row d-flex'>
-                  <div className='col-1 me-auto'> 
-                  <button className="btn bg-secondary"><Link to={`./${Number(vehicle.url.split('/').slice(-2)[0])}/details`} className="text-white text-decoration-none" >Details</Link></button>
+                  <div className='col-1 me-auto'>
+                    <button className="btn bg-secondary"><Link to={`./${Number(vehicle.url.split('/').slice(-2)[0])}/details`} className="text-white text-decoration-none" >Details</Link></button>
                   </div>
                   <div className='col-1 me-2'>
-                  <button className="btn bg-danger  text-white" onClick={(e) => handleFavorite(e, vehicle.name, vehicle.url)}> <FaHeart /> </button>
+                    <button className="btn bg-danger  text-white" onClick={(e) => handleFavorite(e, vehicle.name, vehicle.url)}> <FaHeart /> </button>
                   </div>
                 </div>
               </div>

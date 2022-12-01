@@ -5,14 +5,17 @@ import { getSingleCharacter } from '../api/fetch';
 export default function SingleCharacter() {
     const { id } = useParams();
     const [singleChar, setSingleChar] = useState([])
+
+    //fetch to extract info about selected character
     useEffect(() => {
         getSingleCharacter(id).then(setSingleChar);
 
     }, [id]);
     return (
         <>
+        {/* card to show details of the selected character */}
             <div className="d-flex justify-content-center font-weight-bold">
-                 <h1 className='font-weight-bold' >{singleChar.name}</h1>               
+                <h1 className='font-weight-bold' >{singleChar.name}</h1>
             </div>
             <div className='m-3 row d-flex'>
                 <div className=" mx-auto card col-md-8 col-12 " key={singleChar.name}>

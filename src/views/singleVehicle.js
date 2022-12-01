@@ -5,12 +5,15 @@ import { getSingleVehicle } from '../api/fetch';
 export default function SinglePlanet() {
   const { id } = useParams();
   const [singleVehicle, setSingleVehicle] = useState([])
+
+  //fetch to extract info about selected vehicle
   useEffect(() => {
     getSingleVehicle(id).then(setSingleVehicle);
 
   }, [id]);
   return (
     <>
+    {/* card to show details of the selected vehicle */}
       <div className="d-flex justify-content-center font-weight-bold">
         <h1 className='font-weight-bold' >{singleVehicle.name}</h1>
       </div>

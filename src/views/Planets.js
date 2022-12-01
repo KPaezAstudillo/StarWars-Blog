@@ -11,6 +11,9 @@ export default function Planets() {
         getPlanets().then(setPlanets);
     }, [planets]);
 
+        //Adds name, id and type of favorite (in this case planet) to the favorite list
+    //I only display name
+    //but id and type is necessary to redirect to details page. ex: planets/1/details
     const handleFavorite = (e, name, url) => {
         e.preventDefault();
         setContextData([...contextData, { name: name, id: Number(url.split('/').slice(-2)[0]), type: 'planets' }])
@@ -23,6 +26,7 @@ export default function Planets() {
                     planets?.results?.map((planet) =>
                     (
                         <div className="card col-md-3 col-6 " key={planet.name}>
+                            {/* I got the id from the url attribute, since there is no explicit id */}
                             <img src={`https://starwars-visualguide.com/assets/img/planets/${Number(planet.url.split('/').slice(-2)[0])}.jpg`} className="card-img-top" alt="..." />
                             <div className="card-body" >
                                 <h5 className="card-title">{planet.name}</h5>

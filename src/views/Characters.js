@@ -12,6 +12,9 @@ export default function Characters() {
 
     }, []);
 
+    //Adds name, id and type of favorite (in this case character) to the favorite list
+    //I only display name
+    //but id and type is necessary to redirect to details page. ex: characters/1/details
     const handleFavorite = (e, name, url) => {
         e.preventDefault();
         setContextData([...contextData, { name: name, id: Number(url.split('/').slice(-2)[0]), type: 'characters' }])
@@ -25,6 +28,7 @@ export default function Characters() {
                     people?.results?.map((character) =>
                     (
                         <div className="card col-md-3 col-6 " key={character.name}>
+                            {/* I got the id from the url attribute, since there is no explicit id */}
                             <img src={`https://starwars-visualguide.com/assets/img/characters/${Number(character.url.split('/').slice(-2)[0])}.jpg`} className="card-img-top" alt="..." />
                             <div className="card-body" >
                                 <h5 className="card-title">{character.name}</h5>

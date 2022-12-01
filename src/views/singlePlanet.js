@@ -5,12 +5,15 @@ import { getSinglePlanet } from '../api/fetch';
 export default function SinglePlanet() {
   const { id } = useParams();
   const [singlePlanet, setSinglePlanet] = useState([])
+
+  //fetch to extract info about selected planet
   useEffect(() => {
     getSinglePlanet(id).then(setSinglePlanet);
 
   }, [id]);
   return (
     <>
+    {/* card to show details of the selected planet */}
       <div className="d-flex justify-content-center font-weight-bold">
         <h1 className='font-weight-bold' >{singlePlanet.name}</h1>
       </div>
