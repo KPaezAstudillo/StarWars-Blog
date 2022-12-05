@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom';
 import { getSingleVehicle } from '../api/fetch';
 
-export default function SinglePlanet() {
+export default function SingleVehicle() {
   const { id } = useParams();
   const [singleVehicle, setSingleVehicle] = useState([])
 
