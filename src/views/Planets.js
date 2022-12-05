@@ -38,7 +38,7 @@ export default function Planets() {
                                     <div className='col-1 me-auto'>
                                         <button className="btn bg-secondary"><Link to={`./${Number(planet.url.split('/').slice(-2)[0])}/details`} className="text-white text-decoration-none" >Details</Link></button>
                                     </div>
-                                    <div className='col-1 me-2'>
+                                    <div className='col-1 me-4'>
                                         <button className="btn bg-danger  text-white" onClick={(e) => handleFavorite(e, planet.name, planet.url)}> <FaHeart /> </button>
                                     </div>
                                 </div>
